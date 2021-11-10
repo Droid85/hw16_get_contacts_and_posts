@@ -22,6 +22,22 @@
     background-color: rgb(198, 230, 169);
 }
 
+.user-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-block:last-child {
+    margin-bottom: 0;
+}
+
+.user-paragraph {
+    margin: 0;
+}
+
 .show-posts-btn {
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
