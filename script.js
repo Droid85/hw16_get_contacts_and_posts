@@ -3,6 +3,9 @@ init();
 function init() {
     const http = new HTTP();
     const ui = new RENDEREL();
+
+    ui.containerEl.addEventListener('click', onClickShowBtn)
+
     http.get(ENVIRONMENT.USERS.getUsers)
     .then(response => response.data)
     .then(rdata => {
@@ -11,27 +14,15 @@ function init() {
         });
         return rdata
     })
-    /* .then(r => {
-        ui.containerEl.addEventListener('click', onClickShowBtn)
+    .catch(error => console.log('USERS ERROR', error))
+//get posts
+    http.get(ENVIRONMENT.USERS.getPosts + )
+    .then(response => console.log(response))
+    .catch(error => console.log('POSTS ERROR', error))
+}
 
-        function onClickShowBtn(e) {
-            for (let i = 0; i < r.length; i++) {
-                if (e.target.id && r[i].id && e.target.id === r[i].id) {
-                    return console.log(e.target.id)
-                }
-            }
-        }
-    }) */
-    .catch(error => console.log('ERROR', error))
-
-    ui.containerEl.addEventListener('click', onClickShowBtn)
-
-    function onClickShowBtn(e) {
-        const elements = ui.containerEl.children;
-        for (let i = 0; i < elements.length; i++) {
-            if (e.target.id && elements[i].id && elements[i].id === e.target.id) {
-                return console.log(e.target)
-            }
-        }
+function onClickShowBtn(e) {
+    if (e.target.classList.contains('show-posts-btn')) {
+        return e.target.id
     }
 }
