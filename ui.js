@@ -8,10 +8,10 @@ class RENDEREL {
     paragraphClass = 'user-paragraph';
     btnTxt = 'Show posts';
 
-    createUser(name) {
+    createUser(name, id) {
         this.containerEl.insertAdjacentHTML('beforeend', `<${this.blockEl} class = "${this.blockClass}">
             <${this.paragraphEl} class = "${this.paragraphClass}">${name}</${this.paragraphEl}>
-            <${this.btnEl} class = "${this.btnClass}">${this.btnTxt}</${this.btnEl}>
+            <${this.btnEl} class = "${this.btnClass}" id = "${id}">${this.btnTxt}</${this.btnEl}>
             </${this.blockEl}>`)
     }
 }

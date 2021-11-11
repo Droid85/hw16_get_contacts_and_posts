@@ -1,5 +1,6 @@
 const ENVIRONMENT = {
     USERS: {
-        getUsers: 'users/'
+        getUsers: 'users/',
+        getPosts: 'posts',
     }
 }
