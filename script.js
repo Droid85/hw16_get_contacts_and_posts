@@ -15,14 +15,20 @@ function init() {
         return rdata
     })
     .catch(error => console.log('USERS ERROR', error))
-//get posts
-    http.get(ENVIRONMENT.USERS.getPosts + )
-    .then(response => console.log(response))
-    .catch(error => console.log('POSTS ERROR', error))
-}
 
-function onClickShowBtn(e) {
-    if (e.target.classList.contains('show-posts-btn')) {
-        return e.target.id
+    function onClickShowBtn(e) {
+        if (e.target.classList.contains('show-posts-btn')) {
+            ui.clearPosts()
+            let userId = e.target.id;
+            http.get(ENVIRONMENT.USERS.getPosts + userId)
+                .then(response => response.data)
+                .then(postData => {
+                    postData.forEach(element => {
+                        ui.createUserPosts(element.title, element.body)
+                    })
+                    return postData
+                })
+                .catch(error => console.log('POSTS ERROR', error))
+        }
     }
 }

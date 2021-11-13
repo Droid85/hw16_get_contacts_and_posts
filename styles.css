@@ -34,8 +34,18 @@
     margin-bottom: 0;
 }
 
+.post-block {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.post-block:last-child {
+    border-bottom: none;
+}
+
 .user-paragraph {
-    margin: 0;
+    margin: 5px;
 }
 
 .show-posts-btn {
